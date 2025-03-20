@@ -7,6 +7,11 @@
     <title>Php CRUD </title>
   </head>
   <body> 
+    <?php 
+      session_start();
+
+      echo $_SESSION['email'];
+    ?>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Blog System Management</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +35,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">ContactUS</a>
+          </li>
+          <li class="nav-item">
+            <?php if($_SESSION['email']){ ?>
+              <button type="button" class="btn btn-primary"><a href="logout.php">Logout</a></button>
+              <?php } else { ?>
+                <a class="nav-link" href="login.php">Login</a>
+              <?php } ?>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
